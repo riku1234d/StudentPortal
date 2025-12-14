@@ -43,7 +43,7 @@ export default function AdminNavbar() {
 
   return (
     <nav
-      className="navbar navbar-expand-lg px-4 py-3"
+      className="navbar navbar-expand-lg px-3 px-md-4 py-3"
       style={{
         background: 'linear-gradient(90deg, #4361ee, #3f37c9)',
         borderBottom: '1px solid rgba(255, 255, 255, 0.15)',
@@ -91,20 +91,20 @@ export default function AdminNavbar() {
           }}
         >
           <div className="sidebar-logo d-flex align-items-center">
-            <div className="me-3 d-flex align-items-center justify-content-center" 
+            <div className="me-2 me-md-3 d-flex align-items-center justify-content-center" 
                  style={{ 
-                   width: '40px', 
-                   height: '40px', 
+                   width: '36px', 
+                   height: '36px', 
                    borderRadius: '12px', 
                    background: 'rgba(255, 255, 255, 0.12)',
                    backdropFilter: 'blur(8px)',
                    transition: 'all 0.3s ease'
                  }}>
-              <FaHome style={{ color: '#ffffff', fontSize: '1.3rem' }} />
+              <FaHome style={{ color: '#ffffff', fontSize: '1.2rem' }} />
             </div>
             <div className="sidebar-logo-content">
               <span className="sidebar-logo-main">GIET</span>
-              <span className="sidebar-logo-sub">OnePoint</span>
+              <span className="sidebar-logo-sub d-none d-sm-inline-block">OnePoint</span>
             </div>
           </div>
         </div>
@@ -325,7 +325,7 @@ export default function AdminNavbar() {
           {/* Right Side Icons */}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
             {/* Admin Profile */}
-            <li className="nav-item me-3">
+            <li className="nav-item me-2 me-md-3">
               <div
                 className="d-flex align-items-center"
                 style={{
@@ -349,23 +349,23 @@ export default function AdminNavbar() {
               >
                 <div className="d-flex align-items-center justify-content-center me-2" 
                      style={{ 
-                       width: '36px', 
-                       height: '36px', 
+                       width: '32px', 
+                       height: '32px', 
                        borderRadius: '50%', 
                        background: 'rgba(255, 255, 255, 0.12)',
                        backdropFilter: 'blur(8px)',
                        transition: 'all 0.3s ease'
                      }}>
-                  <FaUserTie style={{ fontSize: '16px' }} />
+                  <FaUserTie style={{ fontSize: '14px' }} />
                 </div>
-                <span style={{ fontWeight: '500', fontSize: '0.9rem' }}>
+                <span className="d-none d-md-inline-block" style={{ fontWeight: '500', fontSize: '0.9rem' }}>
                   {formatAdminRole(adminRole)}
                 </span>
               </div>
             </li>
 
             {/* Notification Bell */}
-            <li className="nav-item me-3 position-relative">
+            <li className="nav-item me-2 me-md-3 position-relative">
               <div
                 style={{ 
                   cursor: "pointer", 
@@ -388,7 +388,7 @@ export default function AdminNavbar() {
                   e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
                 }}
               >
-                <FaBell size={20} />
+                <FaBell size={18} />
                 <span
                   className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
                   style={{ 
@@ -415,7 +415,7 @@ export default function AdminNavbar() {
                   color: '#ffffff',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                   borderRadius: '10px',
-                  padding: '8px 16px',
+                  padding: '8px 12px',
                   fontSize: '0.9rem',
                   transition: "all 0.3s ease",
                   fontWeight: '500',
@@ -432,13 +432,13 @@ export default function AdminNavbar() {
                 }}
               >
                 <FaSignOutAlt 
-                  className="me-2" 
+                  className="me-1 me-md-2" 
                   style={{ 
-                    fontSize: '15px',
+                    fontSize: '14px',
                     transition: 'all 0.3s ease'
                   }} 
                 />
-                <span>Logout</span>
+                <span className="d-none d-md-inline-block">Logout</span>
               </div>
             </li>
           </ul>
@@ -505,6 +505,60 @@ export default function AdminNavbar() {
             
             .nav-item {
               margin-bottom: 0.5rem;
+            }
+            
+            .navbar-nav.ms-auto {
+              margin-top: 1rem;
+              border-top: 1px solid rgba(255, 255, 255, 0.1);
+              padding-top: 1rem;
+            }
+            
+            .navbar-nav.ms-auto .nav-item {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin-bottom: 0.5rem;
+            }
+            
+            .navbar-nav.ms-auto .nav-item:last-child {
+              margin-bottom: 0;
+            }
+            
+            .navbar-nav.ms-auto .nav-item:first-child div {
+              width: 100%;
+              justify-content: center;
+            }
+            
+            .navbar-nav.ms-auto .nav-item:nth-child(2) div {
+              justify-content: center;
+            }
+            
+            .navbar-nav.ms-auto .nav-item:last-child div {
+              width: 100%;
+              justify-content: center;
+            }
+          }
+          
+          @media (max-width: 576px) {
+            .sidebar-logo-main {
+              font-size: 1.2rem;
+            }
+            
+            .sidebar-logo-sub {
+              font-size: 0.75rem;
+            }
+            
+            .navbar {
+              padding-left: 15px !important;
+              padding-right: 15px !important;
+            }
+            
+            .nav-link {
+              padding: 8px 12px !important;
+            }
+            
+            .navbar-nav.ms-auto .nav-item {
+              margin-bottom: 0.75rem;
             }
           }
         `}
